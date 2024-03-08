@@ -1,2 +1,2 @@
-const baseUrl = "http://localhost:5555";
+const baseUrl = "https://nice-tick-onesies.cyclic.app";
 export default baseUrl;
