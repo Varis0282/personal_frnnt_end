@@ -67,7 +67,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='bg-[#16143ff0] w-full flex fixed z-[100000] backdrop-blur-md justify-between py-1'>
+      <div className='bg-[#16143ff0] w-full flex fixed z-[1000] backdrop-blur-md justify-between py-1'>
         <div className="cursor-pointer md:hidden md:w-0 px-3 flex items-center">
           <button
             onClick={() => { isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true) }}
