@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
-import { infoIcon } from '../../icons';
-import { InfoToolTip as CustomTooltip } from '../infoToolTip';
-
+import { useState } from 'react';
+import { Tooltip } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const Field = ({
   name,
@@ -28,22 +27,27 @@ const Field = ({
   onDecrease,
   onKeyUp,
   tooltip,
-  autoComplete='on',
+  autoComplete = 'on',
   readOnly = false,
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
   return (
     <div className="w-full">
       {label && (
         <label
           htmlFor={id}
-          className={`mb-2 flex items-center  text-sm font-medium text-gray-600 ${labelClassNames}`}>
+          className={`mb-2 flex items-center gap-2 text-sm font-medium text-gray-600 ${labelClassNames}`}>
           {label}
           {showOptional && <span className="pl-1 text-[10px] text-gray-400">{'(Optional)'}</span>}
           {Boolean(lableAddOn) && lableAddOn}
           {tooltip && (
-            <CustomTooltip text={tooltip}>
-              <img src={infoIcon} className="ms-2" alt=''/>
-            </CustomTooltip>
+            <Tooltip title={tooltip} className='cursor-pointer'>
+              <QuestionCircleOutlined />
+            </Tooltip>
           )}
         </label>
       )}
@@ -65,7 +69,7 @@ const Field = ({
           </button>
         )}
         <input
-          type={type}
+          type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
           name={name || id}
           id={id}
           value={value}
@@ -73,13 +77,11 @@ const Field = ({
           disabled={isDisabled}
           onKeyUp={onKeyUp}
           className={`block min-h-[42px] w-full rounded-md border focus:ring-0 focus:outline-none focus:border-gray-300 
-          ${leftAddOn && 'rounded-l-none rounded-r-md'} ${rightAddOn && 'rounded-l-md rounded-r-none'} ${
-            counterField && 'rounded-none text-center'
-          } border-gray-300 px-2.5 text-sm text-gray-900 disabled:bg-neutral-300 ${inputClassNames} ${
-            type === 'number'
+          ${leftAddOn && 'rounded-l-none rounded-r-md'} ${rightAddOn && 'rounded-l-md rounded-r-none'} ${counterField && 'rounded-none text-center'
+            } border-gray-300 px-2.5 text-sm text-gray-900 disabled:bg-neutral-300 ${inputClassNames} ${type === 'number'
               ? '[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none'
               : ''
-          }`}
+            } ${type==='password' && 'border-r-0 rounded-r-none'}`}
           placeholder={placeHolder}
           required={required}
           max={maxDate || ''}
@@ -88,6 +90,16 @@ const Field = ({
           autoComplete={autoComplete}
           readOnly={readOnly}
         />
+        {type === 'password' && (
+          <button
+            type="button"
+            className="rounded-e-lg border border-gray-300 border-l-0 w-[40px] focus:outline-none focus:ring-0"
+            onClick={togglePasswordVisibility}
+            tabIndex={-1}
+          >
+            <i className={`fa-solid ${showPassword?'fa-eye':'fa-eye-slash'}`}></i>
+          </button>
+        )}
         {counterField && onIncrease && (
           <button
             type="button"

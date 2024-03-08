@@ -1,0 +1,5 @@
+export {default as Developer } from './Developer.json'
+export { default as Doubt_solving } from './Doubt_solving.json'
+export { default as Guidance } from './Guidance.json'
+export { default as Live_Classes } from './Live_Classes.json'
+export { default as Personalized_ex } from './Personalized_ex.json'

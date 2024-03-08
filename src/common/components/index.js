@@ -2,3 +2,8 @@ export * from './Feild';
 export * from './navbar';
 export * from './infoToolTip';
 export * from './loader';
+export * from './pageWithNavbar';
+export * from './live_classes';
+export * from './doubt_solving';
+export * from './personalized_learning';
+export * from './guidance';
