@@ -107,7 +107,7 @@ const Navbar = () => {
           }
         </div>
       </div>
-      <div className={`md:hidden absolute z-50 flex flex-col w-full bg-white flex-nowrap text-black transition-all duration-700 ${isMenuOpen ? 'left-0' : 'left-[-1000px]'}`}>
+      <div className={`md:hidden absolute z-50 flex flex-col w-full pt-16 bg-white flex-nowrap text-black transition-all duration-700 ${isMenuOpen ? 'left-0' : 'left-[-1000px]'}`}>
         {user && <div id="logo" className="w-full gap-2 flex items-center flex-row py-1 border-b">
           <div className="flex bg-orange-500 rounded-full w-14 h-14 justify-center items-center text-4xl text-white cursor-pointer" onClick={() => { navigate('/profile') }}>
             {user?.name.charAt(0).toUpperCase()}

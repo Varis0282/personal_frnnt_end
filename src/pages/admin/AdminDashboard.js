@@ -45,6 +45,7 @@ const Admin_Dashboard = () => {
     try {
       const response = await axios.get(`${baseUrl}/api/admin/doubts`, { headers })
       console.log(response.data)
+      dispatch(setLoading(false));
     } catch (error) {
       message.error('Failed to fetch doubts')
     }
@@ -55,7 +56,6 @@ const Admin_Dashboard = () => {
     getAllUsers();
     getAllCourses();
     getAllDoubts();
-    dispatch(setLoading(false));
   }
 
   const handleSearchChange = () => {
