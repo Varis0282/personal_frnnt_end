@@ -10,6 +10,7 @@ import { ArrowUpOutlined } from '@ant-design/icons';
 
 const App = () => {
   const { loading } = useSelector((state) => state.loaders);
+  console.log("Test")
   return (
     <div>
       {loading && <Loader />}
