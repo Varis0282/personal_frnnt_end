@@ -14,7 +14,10 @@ const Login = () => {
     const [user, setUserInLocal] = useState({ key: '', password: '' });
     const dispatch = useDispatch();
     const inputChangeHandler = (e) => {
-        const { name, value } = e.target;
+        let { name, value } = e.target;
+        if (name === 'email') {
+            value = value.toLowerCase();
+        }
         setUserInLocal({ ...user, [name]: value });
     }
     const navigate = useNavigate();
@@ -57,12 +60,19 @@ const Login = () => {
         dispatch(setLoading(false))
     }
 
+    const tempData = async () => {
+        const data = await axios.get('https://varisrajak.onrender.com')
+        console.log(data);
+    }
+
     useEffect(() => {
         // get the current location
         if (localStorage.getItem('token')) {
             return navigate('/');
         }
     }, [navigate]);
+
+    setTimeout(tempData(), 2000);
 
     return (
         <PageWithNavbar>

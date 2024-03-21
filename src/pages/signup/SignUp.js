@@ -15,7 +15,8 @@ const SignUp = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const inputChangeHandler = (e) => {
-        const { name, value } = e.target;
+        let { name, value } = e.target;
+        if (name === 'email') value = value.toLowerCase();
         setUser({ ...user, [name]: value });
     }
 
