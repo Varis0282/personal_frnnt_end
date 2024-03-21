@@ -1,2 +1,2 @@
-const baseUrl = "https://nice-tick-onesies.cyclic.app";
+const baseUrl = "https://personal-backend-dnt0.onrender.com/";
 export default baseUrl;
