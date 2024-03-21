@@ -60,19 +60,12 @@ const Login = () => {
         dispatch(setLoading(false))
     }
 
-    const tempData = async () => {
-        const data = await axios.get('https://varisrajak.onrender.com')
-        console.log(data);
-    }
-
     useEffect(() => {
         // get the current location
         if (localStorage.getItem('token')) {
             return navigate('/');
         }
     }, [navigate]);
-
-    setTimeout(tempData(), 2000);
 
     return (
         <PageWithNavbar>
