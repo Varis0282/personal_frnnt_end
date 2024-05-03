@@ -79,7 +79,7 @@ const Navbar = () => {
           </button>
         </div>
         <div id="logo" className="md:flex hidden w-1/3">
-          <img src="https://trainings.internshala.com/static/images/common/ist_logo.svg?v=1.0" alt="Logo" className='w-48 cursor-pointer' onClick={() => { navigate('/') }} />
+          {/* <img src="https://trainings.internshala.com/static/images/common/ist_logo.svg?v=1.0" alt="Logo" className='w-48 cursor-pointer' onClick={() => { navigate('/') }} /> */}
         </div>
         <div id="title" className="flex items-center justify-center flex-col md:w-1/3 md:ml-0 -ml-4 w-[95%]">
           <h1 className="text-white md:text-3xl text:lg font-medium cursor-pointer" onClick={() => navigate('/')}>Mere Personal Guru</h1>
