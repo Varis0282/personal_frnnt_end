@@ -4,6 +4,7 @@ import baseUrl from '../../config';
 import axios from 'axios';
 import { message, Tooltip } from 'antd';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setLoading } from '../../redux/loaderReducer';
 import { UserOutlined, HomeOutlined, MailOutlined, BankOutlined, BookOutlined, PartitionOutlined, CalendarOutlined } from '@ant-design/icons';
 
@@ -11,6 +12,7 @@ import { UserOutlined, HomeOutlined, MailOutlined, BankOutlined, BookOutlined, P
 const Profile = () => {
     const [user, setUser] = useState();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [save, setSave] = useState(false);
     const [userDetails, setUserDetails] = useState(user);
 
@@ -163,7 +165,11 @@ const Profile = () => {
                                     />
                                 </div>
                                 <div className='w-full flex flex-row justify-center sm:justify-end items-center gap-2'>
-                                    <button className="text-orange-500 w-1/2 sm:w-1/6 border-orange-500 border p-2 rounded focus:border-orange-500 focus:outline-none focus:ring-0">
+                                    <button className="text-orange-500 w-1/2 sm:w-1/6 border-orange-500 border p-2 rounded focus:border-orange-500 focus:outline-none focus:ring-0"
+                                        onClick={() => {
+                                            navigate('/change-password')
+                                        }}
+                                    >
                                         Change Password
                                     </button>
                                     <Tooltip title={save ? 'Save your details' : 'Edit something to activate save'} color='black'>

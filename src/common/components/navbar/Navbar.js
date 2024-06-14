@@ -85,7 +85,13 @@ const Navbar = () => {
           <h1 className="text-white md:text-3xl text:lg font-medium cursor-pointer" onClick={() => navigate('/')}>Mere Personal Guru</h1>
           <p className='text-sm text-orange-500 font-medium cursor-pointer' onClick={() => navigate('/')}>Apka Apna Online Tutor</p>
         </div>
-        <div className="md:flex hidden flex-row w-1/3 justify-end items-center">
+        <div className="md:flex hidden flex-row w-1/3 justify-end items-center gap-6">
+          {user && user?.role === 'admin' && <button
+            className='text-white text-sm rounded-lg border-white border px-2 py-1 font-normal cursor-pointer 
+            hover:bg-white hover:text-black hover:border-black hover:shadow-md transition-all duration-200'
+            onClick={() => { navigate('/admin') }}>
+            Admin Panel
+          </button>}
           {user &&
             <Dropdown.Button
               className='w-auto'
